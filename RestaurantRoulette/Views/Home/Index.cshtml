@@ -1,0 +1,25 @@
+﻿@model RestaurantRoulette.Models.Restaurants
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+
+    <div>
+        <h1>@Model.Restaurant.Name</h1>
+    </div>
+    <ul>
+        <li></li>
+        <li>@Model.Restaurant.Locations.Address</li>
+        <li>@Model.Restaurant.Ratings.AverageRating</li>
+    </ul>
+    <div>
+        <img src="@Url.Content(Model.Restaurant.Thumbnail)" />
+    </div>
+}
