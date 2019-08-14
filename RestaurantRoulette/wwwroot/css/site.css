@@ -1,37 +1,116 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
+
+/* Home page style -- starts here */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    font-family: 'Helvetica', sans-serif;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
+.bg-gradient {
+    height: 960px;
+}
+
+.form-group {
+    padding-top: 150px;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: 200;
+}
+
+header {
+    padding-top: 100px;
+    text-align: center;
+    color: darkslategrey;
+}
+
+input {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: 150px;
+}
+
+.input-block {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.input-group {
+    padding-top: 50px;
+}
+
+.navbar {
+    color: grey;
+}
+
+select {
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 300px;
+}
+
+/* Home page styling -- end*/
+
+/* Styling for restaraunt result -- starts here */
+
+.address-block, .phone-block {
+    display: block;
+    width: 450px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.checked {
+    color: orange;
+}
+
+.img-gallery {
+    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
+    transform: scale(0.8);
+    transition: all 0.3s ease-in;
+}
+
+.img-gallery {
+    transform: scale(1);
+}
+
+.location-img, .phone-img {
+    height: 40px;
+}
+
+
+.location-img, .phone-img {
     padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.review-block {
+    padding-top: 5px;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.restaurant-name {
+    padding-top: 25px;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.star-block {
+    width: 450px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 25px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.thumbnail {
+    width: 400px;
+    padding-top: 80px;
 }
+
+
+
+

@@ -7,6 +7,8 @@ namespace RestaurantRoulette.Models
 {
     public class SearchModel
     {
-        public string Radius { get; set; }
+        public string mealType { get; set; }
+        public double latitude { get; set; }
+        public double longitutde { get; set; }
     }
 }

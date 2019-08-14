@@ -1,0 +1,29 @@
+﻿@model RestaurantRoulette.Models.Restaurants
+
+@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container result-group">
+    <div class="result-block">
+        <div class="star-block" id="star-rating">
+            <img class="thumbnail" src="@Url.Content(Model.Restaurant.Thumbnail)" />
+            <p class="restaurant-name">@Model.Restaurant.Name</p>
+        </div>
+        <div class="review-block">
+            <p class="number-reviews">Based on: @Model.Restaurant.Ratings.NumberReview reviews</p>
+        </div>
+        <div class="address-block">
+            <img class="location-img" src="~/images/result-icons/location-marker.svg" />
+            <a href="https://maps.google.com/maps?saddr=My+Location&daddr=@Model.Restaurant.Locations.Address">@Model.Restaurant.Locations.Address</a>
+        </div>
+        <div class="phone-block">
+            <img class="phone-img" src="~/images/result-icons/telephone.svg" />
+            <a href="tel:@Model.Restaurant.PhoneNumber">@Model.Restaurant.PhoneNumber</a>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/site.js"></script>
+<script>getRating(@Model.Restaurant.Ratings.AverageRating)</script>

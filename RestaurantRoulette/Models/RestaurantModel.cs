@@ -9,6 +9,8 @@ namespace RestaurantRoulette.Models
 
     public class RestaurantWrapper
     {
+        [JsonProperty("results_found")]
+        public int NumberResults { get; set; }
         public List<Restaurants> Restaurants { get; set; }
     }
 
@@ -24,11 +26,17 @@ namespace RestaurantRoulette.Models
         [JsonProperty("location")]
         public Location Locations { get; set; }
 
+        [JsonProperty("phone_numbers")]
+        public string PhoneNumber { get; set; }
+
         [JsonProperty("user_rating")]
         public Rating Ratings { get; set; }
 
         [JsonProperty("thumb")]
         public string Thumbnail { get; set; }
+
+        [JsonProperty("url")]
+        public string Url { get; set; }
 
         public class Location
         {
@@ -37,7 +45,7 @@ namespace RestaurantRoulette.Models
         public class Rating
         {
             [JsonProperty("aggregate_rating")]
-            public string AverageRating { get; set; }
+            public double AverageRating { get; set; }
 
             [JsonProperty("votes")]
             public int NumberReview { get; set; }

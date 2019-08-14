@@ -1,25 +1,38 @@
-﻿@model RestaurantRoulette.Models.Restaurants
-
+﻿
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 @using (Html.BeginForm("Search", "Home", FormMethod.Get))
 {
-    <div>
-        <input type="submit" value="Search" />
-    </div>
-
-    <div>
-        <h1>@Model.Restaurant.Name</h1>
-    </div>
-    <ul>
-        <li></li>
-        <li>@Model.Restaurant.Locations.Address</li>
-        <li>@Model.Restaurant.Ratings.AverageRating</li>
-    </ul>
-    <div>
-        <img src="@Url.Content(Model.Restaurant.Thumbnail)" />
-    </div>
+    <header class="bg-gradient">
+        <div class="container form-group">
+            <h1>Welcome to Restaurant Roulette!</h1>
+            <p>Hit search to find a restarant near you</p>
+            <div>
+                <input type="hidden" name="latitude" id="lat" />
+                <input type="hidden" name="longitutde" id="long" />
+            </div>
+            <div class="input-block">
+                <div class="input-group">
+                    <select name="mealType">
+                        <option value="" disabled selected>What type of meal?</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                    </select>
+                    <input type="submit" value="Search" />
+                </div>
+            </div>
+        </div>
+    </header>
 }
+
+@if (TempData["notice"] != null)
+{
+    <p>@TempData["notice"]</p>
+}
+
+<script src="~/js/site.js"></script>
+<script>getLocation()</script>
