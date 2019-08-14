@@ -15,3 +15,16 @@ In developing this application, I practiced HTML, CSS, JavaScript, C# and learnt
 
 [Zomato](https://developers.zomato.com/api) for their API to search for restaurants, [Flaticon](https://www.flaticon.com/home) for their flat icons 
 used in results page and [Font Awesome](https://fontawesome.com/v4.7.0/get-started/) for their stars used to display reviews.
+
+## Screenshots
+
+###### Home and result - Mobile view
+<p align="center"><img src="Screenshots/RestaurantRoulette_mobile.png" width="70%" align="middle"></p>
+
+
+###### Home - Desktop view
+<p align="center"><img src="Screenshots/RestaurantRoulette-home-desktop.jpg" width="70%" align="middle"></p>
+
+
+###### Result - Desktop view
+<p align="center"><img src="Screenshots/RestaurantRoulette-result-desktop.jpg" width="70%" align="middle"></p>
