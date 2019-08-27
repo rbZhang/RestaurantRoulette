@@ -20,7 +20,7 @@ namespace RestaurantRoulette.Controllers
         [HttpGet]
         public ActionResult Search(SearchModel model)
         {
-            var zomatoApiKey = "Insert Zomato API Key Here";
+            var zomatoApiKey = "022edde1bef9a9421e14b38e6befd929";
             var mealType = model.mealType;
             var latitude = model.latitude;
             var longitude = model.longitutde;
