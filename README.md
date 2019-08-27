@@ -8,7 +8,7 @@ The application was developed to combat indecisiveness among my friends when dec
 
 ## Technology and knowledge
 
-The application was developed using ASP.Net MVC and [Zomato's API](https://developers.zomato.com/api) to search for restaurants.
+The application was developed using ASP.Net Core and [Zomato's API](https://developers.zomato.com/api) to search for restaurants.
 In developing this application, I practiced HTML, CSS, JavaScript, C# and learnt how to deserialize JSON data in MVC.
 
 ## Acknowledgements
@@ -19,7 +19,7 @@ used in results page and [Font Awesome](https://fontawesome.com/v4.7.0/get-start
 ## Screenshots
 
 ###### Home and result - Mobile view
-<p align="center"><img src="Screenshots/RestaurantRoulette_mobile.png" width="70%" align="middle"></p>
+<p align="center"><img src="Screenshots/RestaurantRoulette_mobile.jpg" width="70%" align="middle"></p>
 
 
 ###### Home - Desktop view
