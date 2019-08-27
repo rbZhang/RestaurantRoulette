@@ -1,38 +1,62 @@
-﻿
+﻿@model SearchModel
+
 @{
-    ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Search", "Home", FormMethod.Get))
-{
-    <header class="bg-gradient">
-        <div class="container form-group">
-            <h1>Welcome to Restaurant Roulette!</h1>
-            <p>Hit search to find a restarant near you</p>
-            <div>
-                <input type="hidden" name="latitude" id="lat" />
-                <input type="hidden" name="longitutde" id="long" />
-            </div>
-            <div class="input-block">
-                <div class="input-group">
-                    <select name="mealType">
-                        <option value="" disabled selected>What type of meal?</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="dinner">Dinner</option>
-                    </select>
-                    <input type="submit" value="Search" />
+<div class="hero-img">
+    <div class="container">
+        <div class="row">
+            <div class="input-wrapper offset-lg-2 offset-md-1 col-xs-12 col-md-10 col-lg-8">
+                <div class="input-text">
+                    <h1>Can't decide on what to eat?</h1>
+                    <h2>Let us decide for you</h2>
+                    <form method="get" action="/Home/Search">
+                        <input type="hidden" name="MealType" id="mealType" value="" />
+                        <input type="text" name="Address" id="addr-input" placeholder="Enter your address" required />
+                        <img src="/images/location.png" alt="img" onclick="getLocation(null)" />
+                        <button type="submit" id="search-btn">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </header>
-}
+    </div>
+</div>
 
-@if (TempData["notice"] != null)
-{
-    <p>@TempData["notice"]</p>
-}
+<div class="suggestion-block">
+    <div class="container">
+        <div class="title-text">
+            <h1>Quick search</h1>
+            <h2>Search for a random restaurant by meal type</h2>
+        </div>
+        <div class="row">
+            <div class="meal-type col-sm-12 col-lg-4">
+                <div class="type-text" onclick="getLocation('breakfast')">
+                    <img src="/images/meal-type/breakfast.svg" />
+                    <p>Breakfast</p>
+                </div>
+            </div>
+            <div class="meal-type col-sm-12 col-lg-4">
+                <div class="type-text" onclick="getLocation('lunch')">
+                    <img src="/images/meal-type/lunch.svg" />
+                    <p>Lunch</p>
+                </div>
+            </div>
+            <div class="meal-type col-sm-12 col-lg-4">
+                <div class="type-text" onclick="getLocation('dinner')">
+                    <img src="/images/meal-type/dinner.svg" />
+                    <p>Dinner</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="~/js/site.js"></script>
-<script>getLocation()</script>
+<script src="/js/site.js"></script>
+<script>
+    function activatePlaceSearch() {
+        var input = document.getElementById("addr-input");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=ZomatoApiKey&libraries=places&callback=activatePlaceSearch"></script>

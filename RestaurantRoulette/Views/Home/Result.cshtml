@@ -5,10 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="banner-img">
+    <img class="thumbnail" src="@Url.Content(Model.Restaurant.Thumbnail)" />
+</div>
 <div class="container result-group">
     <div class="result-block">
         <div class="star-block" id="star-rating">
-            <img class="thumbnail" src="@Url.Content(Model.Restaurant.Thumbnail)" />
             <p class="restaurant-name">@Model.Restaurant.Name</p>
         </div>
         <div class="review-block">

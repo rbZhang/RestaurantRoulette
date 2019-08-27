@@ -32,7 +32,7 @@ namespace RestaurantRoulette.Models
         [JsonProperty("user_rating")]
         public Rating Ratings { get; set; }
 
-        [JsonProperty("thumb")]
+        [JsonProperty("featured_image")]
         public string Thumbnail { get; set; }
 
         [JsonProperty("url")]

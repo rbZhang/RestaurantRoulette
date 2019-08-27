@@ -3,11 +3,13 @@
 
 // Write your JavaScript code.
 
-function getLocation() {
+function getLocation(mealType) {
+    document.getElementById("mealType").value = mealType;
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        alert("Geolocation is not supported by this browser.");
     }
 }
 
@@ -15,8 +17,25 @@ function showPosition(position) {
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
 
-    document.getElementById("lat").value = lat;
-    document.getElementById("long").value = long;
+    var geocoder = new google.maps.Geocoder();
+    var location = new google.maps.LatLng(lat, long);
+    geocoder.geocode({ 'latLng': location }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var address = results[0].formatted_address;
+            document.getElementById('addr-input').value = address;
+            checkMealType();
+        } else {
+            alert("There was a problem finding your location.");
+        }
+    })
+}
+
+function checkMealType() {
+    var mealType = document.getElementById("mealType").value;
+
+    if (mealType != "") {
+        document.getElementById("search-btn").click();
+    }
 }
 
 function getRating(rating) {
@@ -36,4 +55,3 @@ function getRating(rating) {
         }
     };
 }
-

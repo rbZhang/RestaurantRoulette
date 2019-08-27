@@ -20,25 +20,38 @@ namespace RestaurantRoulette.Controllers
         [HttpGet]
         public ActionResult Search(SearchModel model)
         {
-            var zomatoApiKey = "Insert Zomato API Key Here";
-            var mealType = model.mealType;
-            var latitude = model.latitude;
-            var longitude = model.longitutde;
-            var client = new WebClient();
-            var json = client.DownloadString("https://developers.zomato.com/api/v2.1/search?q=" + mealType + "&lat=" + latitude + "&lon=" + longitude + "&apikey=" + zomatoApiKey + "&sort=real_distance");
-            var results = JsonConvert.DeserializeObject<RestaurantWrapper>(json);
-
-            if (results.NumberResults < 100000)
+            if (!ModelState.IsValid)
             {
-                var lastProperty = results.Restaurants.Count;
-                var randomNumber = new Random().Next(0, lastProperty);
-
-                return View("Result", results.Restaurants[randomNumber]);              
+                return View("Index");
             }
             else
             {
-                TempData["notice"] = "No results found";
-                return View("Index");
+                var client = new WebClient();
+
+                var googleApiKey = "GoogleApiKey";
+                var address = model.Address;
+                var addressJson = client.DownloadString("https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + googleApiKey);
+                var addressResult = JsonConvert.DeserializeObject<LocationModel>(addressJson);
+
+                var zomatoApiKey = "ZomatoApiKey";
+                var mealType = model.MealType;
+                var latitude = addressResult.Results[0].Geometry.Location.Lat;
+                var longitude = addressResult.Results[0].Geometry.Location.Lng;
+
+                var json = client.DownloadString("https://developers.zomato.com/api/v2.1/search?q=" + mealType + "&lat=" + latitude + "&lon=" + longitude + "&apikey=" + zomatoApiKey + "&sort=real_distance");
+                var results = JsonConvert.DeserializeObject<RestaurantWrapper>(json);
+
+                if (results.NumberResults < 100000)
+                {
+                    var lastProperty = results.Restaurants.Count;
+                    var randomNumber = new Random().Next(0, lastProperty);
+
+                    return View("Result", results.Restaurants[randomNumber]);
+                }
+                else
+                {
+                    return View("Index");
+                }
             }
         }
     }

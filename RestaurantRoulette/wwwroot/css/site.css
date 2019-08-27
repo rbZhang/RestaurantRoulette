@@ -1,58 +1,154 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 
-/* Home page style -- starts here */
-body {
-    font-family: 'Helvetica', sans-serif;
-}
-
-.bg-gradient {
-    height: 960px;
-}
-
-.form-group {
-    padding-top: 150px;
-}
-
-h1 {
-    font-size: 25px;
-    font-weight: 200;
-}
-
-header {
-    padding-top: 100px;
-    text-align: center;
-    color: darkslategrey;
-}
-
-input {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    width: 150px;
-}
-
-.input-block {
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.input-group {
-    padding-top: 50px;
-}
+/* General styling -- starts here */
 
 .navbar {
-    color: grey;
+    padding-top: 20px;
 }
 
-select {
-    padding: 12px 20px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    width: 300px;
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    background-color: #F3F3F3;
+}
+
+@media only screen and (min-width: 992px) {
+    body {
+        font-size: 14px;
+    }
+
+    .hero-img {
+        height: 600px;
+    }
+
+    .input-wrapper {
+        padding-top: 200px;
+    }
+
+    .banner-img img {
+        position: center;
+        width: 100%;
+        height: 550px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    body {
+        font-size: 12px;
+    }
+
+    .hero-img {
+        height: 400px;
+    }
+
+    .input-wrapper {
+        padding-top: 120px;
+    }
+
+    .banner-img img {
+        position: center;
+        width: 100%;
+        height: 400px;
+    }
+}
+
+/* Hero image styling starts here ------------------- */
+
+.hero-img {
+    background-image: url("../images/banner-img.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.input-text {
+    padding: 20px 0 30px 0;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+    text-align: center;
+    border-radius: 3px;
+}
+
+    .input-text h1 {
+        font-size: 2.5em;
+        font-weight: 700;
+    }
+
+    .input-text h2 {
+        font-size: 1.6em;
+        padding-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .input-text img {
+        cursor: pointer;
+        height: 18px;
+        margin-left: -40px;
+    }
+
+#addr-input {
+    width: 60%;
+    height: 50px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 0 20px 0 20px;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+}
+
+#search-btn {
+    margin-left: 25px;
+    width: 20%;
+    height: 50px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    background-color: #F76363;
+    color: white;
+    cursor: pointer;
 }
 
 /* Home page styling -- end*/
+
+/* Suggestion list styling -- starts here */
+
+.suggestion-block {
+    padding-top: 30px;
+}
+
+.title-text h1 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.title-text h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.meal-type {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.type-text {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+    padding: 20px 0 5px 0;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+    .type-text:hover {
+        transform: scale(1.1);
+    }
+
+    .type-text p {
+        padding-top: 10px;
+    }
+
+.meal-type img {
+    text-align: center;
+    width: 25%;
+}
 
 /* Styling for restaraunt result -- starts here */
 
@@ -65,16 +161,6 @@ select {
 
 .checked {
     color: orange;
-}
-
-.img-gallery {
-    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
-    transform: scale(0.8);
-    transition: all 0.3s ease-in;
-}
-
-.img-gallery {
-    transform: scale(1);
 }
 
 .location-img, .phone-img {
@@ -105,12 +191,3 @@ select {
     text-align: center;
     padding-top: 25px;
 }
-
-.thumbnail {
-    width: 400px;
-    padding-top: 80px;
-}
-
-
-
-
