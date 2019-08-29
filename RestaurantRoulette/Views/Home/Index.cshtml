@@ -4,6 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<nav class="home-nav navbar navbar-expand-sm navbar-dark fixed-top">
+    <div class="container">
+        <div class="brand-logo">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                <img src="~/images/rr-logo.svg" alt="Restaurant Roulette" style="width:35px" />
+                Restaurant Roulette
+            </a>
+        </div>
+    </div>
+</nav>
+
 <div class="hero-img">
     <div class="container">
         <div class="row">
@@ -30,22 +42,28 @@
             <h2>Search for a random restaurant by meal type</h2>
         </div>
         <div class="row">
-            <div class="meal-type col-sm-12 col-lg-4">
+            <div class="meal-type col-6 col-lg-3">
                 <div class="type-text" onclick="getLocation('breakfast')">
                     <img src="/images/meal-type/breakfast.svg" />
                     <p>Breakfast</p>
                 </div>
             </div>
-            <div class="meal-type col-sm-12 col-lg-4">
+            <div class="meal-type col-6 col-lg-3">
                 <div class="type-text" onclick="getLocation('lunch')">
                     <img src="/images/meal-type/lunch.svg" />
                     <p>Lunch</p>
                 </div>
             </div>
-            <div class="meal-type col-sm-12 col-lg-4">
+            <div class="meal-type col-6 col-lg-3">
                 <div class="type-text" onclick="getLocation('dinner')">
                     <img src="/images/meal-type/dinner.svg" />
                     <p>Dinner</p>
+                </div>
+            </div>
+            <div class="meal-type col-6 col-lg-3">
+                <div class="type-text" onclick="getLocation('delivery')">
+                    <img src="~/images/meal-type/delivery.svg" />
+                    <p>Delivery</p>
                 </div>
             </div>
         </div>
@@ -59,4 +77,4 @@
         var autocomplete = new google.maps.places.Autocomplete(input);
     }
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=ZomatoApiKey&libraries=places&callback=activatePlaceSearch"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=Key&libraries=places&callback=activatePlaceSearch"></script>

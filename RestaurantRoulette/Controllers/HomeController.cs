@@ -27,13 +27,12 @@ namespace RestaurantRoulette.Controllers
             else
             {
                 var client = new WebClient();
-
-                var googleApiKey = "GoogleApiKey";
+                var googleApiKey = "google key";
                 var address = model.Address;
                 var addressJson = client.DownloadString("https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + googleApiKey);
                 var addressResult = JsonConvert.DeserializeObject<LocationModel>(addressJson);
 
-                var zomatoApiKey = "ZomatoApiKey";
+                var zomatoApiKey = "zomato key";
                 var mealType = model.MealType;
                 var latitude = addressResult.Results[0].Geometry.Location.Lat;
                 var longitude = addressResult.Results[0].Geometry.Location.Lng;

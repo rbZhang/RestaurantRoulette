@@ -5,27 +5,82 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="banner-img">
-    <img class="thumbnail" src="@Url.Content(Model.Restaurant.Thumbnail)" />
-</div>
-<div class="container result-group">
-    <div class="result-block">
-        <div class="star-block" id="star-rating">
-            <p class="restaurant-name">@Model.Restaurant.Name</p>
+
+<nav class="result-nav navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <div class="brand-logo">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                <img src="~/images/rr-logo.svg" alt="Restaurant Roulette" style="width:35px" />
+                Restaurant Roulette
+            </a>
         </div>
-        <div class="review-block">
-            <p class="number-reviews">Based on: @Model.Restaurant.Ratings.NumberReview reviews</p>
+    </div>
+</nav>
+
+<div class="res-block-one-padding">
+    <div class="container res-block-one">
+        <div class="res-img-wrapper">
+            <div class="row">
+                <div class="res-img">
+                    <img src="@Url.Content(Model.Restaurant.Thumbnail)" />
+                </div>
+            </div>
         </div>
-        <div class="address-block">
-            <img class="location-img" src="~/images/result-icons/location-marker.svg" />
-            <a href="https://maps.google.com/maps?saddr=My+Location&daddr=@Model.Restaurant.Locations.Address">@Model.Restaurant.Locations.Address</a>
-        </div>
-        <div class="phone-block">
-            <img class="phone-img" src="~/images/result-icons/telephone.svg" />
-            <a href="tel:@Model.Restaurant.PhoneNumber">@Model.Restaurant.PhoneNumber</a>
+        <div class="res-info-wrapper">
+            <div class="row">
+                <div class="res-name col-lg-8 col-7">
+                    <h1>@Model.Restaurant.Name</h1>
+                </div>
+                <div class="res-rating col-lg-4 col-5">
+                    <h1>@Model.Restaurant.Ratings.AverageRating/5</h1>
+                    <p>Based on: @Model.Restaurant.Ratings.NumberReview reviews</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="res-type col-8">
+                    <p>@Model.Restaurant.Cuisines</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<script src="~/js/site.js"></script>
-<script>getRating(@Model.Restaurant.Ratings.AverageRating)</script>
+<div class="container res-block-two">
+    <div class="res-contact-wrapper">
+        <div class="row">
+            <div class="block-two-left col-lg-6">
+                <div class="row">
+                    <div class="res-hours col-lg-6">
+                        <h1>Opening hours</h1>
+                        <p>@Model.Restaurant.Timings</p>
+                    </div>
+                    <div class="res-cost col-lg-6">
+                        <h1>Average cost</h1>
+                        <p>$@Model.Restaurant.Cost for two people (approx.)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="res-phone col-12">
+                        <h1>Phone number</h1>
+                        <a href="tel:@Model.Restaurant.PhoneNumber"><p>@Model.Restaurant.PhoneNumber</p></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="res-addr col-12">
+                        <h1>Address</h1>
+                        <a href="https://maps.google.com/maps?saddr=My+Location&daddr=@Model.Restaurant.Locations.Address"><p>@Model.Restaurant.Locations.Address</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="block-two-right col-lg-6 col-12">
+                <div class="maps-block" style="width:100%;height:300px;border:1px solid #000;">
+                    <p>Google maps goes here</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+

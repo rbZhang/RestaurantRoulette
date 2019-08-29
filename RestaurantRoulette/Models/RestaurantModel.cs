@@ -23,6 +23,13 @@ namespace RestaurantRoulette.Models
     {
         public string Name { get; set; }
 
+        public string Cuisines { get; set; }
+
+        public string Timings { get; set; }
+
+        [JsonProperty("average_cost_for_two")]
+        public int Cost { get; set; }
+
         [JsonProperty("location")]
         public Location Locations { get; set; }
 

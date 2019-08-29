@@ -3,8 +3,27 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* General styling -- starts here */
 
-.navbar {
+.home-nav {
+    position: absolute;
     padding-top: 20px;
+}
+
+.result-nav {
+    position: absolute;
+}
+
+.navbar-brand {
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    padding-top: 80px;
+}
+
+footer p {
+    text-align: center;
 }
 
 body {
@@ -24,12 +43,6 @@ body {
     .input-wrapper {
         padding-top: 200px;
     }
-
-    .banner-img img {
-        position: center;
-        width: 100%;
-        height: 550px;
-    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -44,12 +57,13 @@ body {
     .input-wrapper {
         padding-top: 120px;
     }
+}
 
-    .banner-img img {
-        position: center;
-        width: 100%;
-        height: 400px;
+@media screen and (max-width: 400px) {
+    body {
+        font-size: 10px;
     }
+
 }
 
 /* Hero image styling starts here ------------------- */
@@ -91,7 +105,7 @@ body {
     height: 50px;
     border: 1px solid grey;
     border-radius: 3px;
-    padding: 0 20px 0 20px;
+    padding: 0 45px 0 20px;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -137,13 +151,13 @@ body {
     cursor: pointer;
 }
 
-    .type-text:hover {
-        transform: scale(1.1);
-    }
+.type-text:hover {
+    transform: scale(1.1);
+}
 
-    .type-text p {
-        padding-top: 10px;
-    }
+.type-text p {
+    padding-top: 10px;
+}
 
 .meal-type img {
     text-align: center;
@@ -152,42 +166,61 @@ body {
 
 /* Styling for restaraunt result -- starts here */
 
-.address-block, .phone-block {
-    display: block;
-    width: 450px;
-    margin: 0 auto;
-    padding-bottom: 15px;
+/* -- Restaurant result -- all blocks */
+
+.res-info-wrapper, .res-contact-wrapper {
+    padding: 20px 15px 0 15px;
 }
 
-.checked {
-    color: orange;
+.res-block-one, .res-block-two {
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #E0E0E0;
 }
 
-.location-img, .phone-img {
-    height: 40px;
+/* -- Restaurant result -- block one */
+
+.res-block-one-padding {
+    padding: 60px 0 20px 0;
 }
 
-
-.location-img, .phone-img {
-    padding-right: 15px;
-}
-
-.review-block {
-    padding-top: 5px;
-    text-align: center;
-    padding-bottom: 10px;
-}
-
-.restaurant-name {
-    padding-top: 25px;
-    font-size: 30px;
-    font-weight: 600;
+.res-img img {
+    height: 350px;
+    width: 100%;
     text-align: center;
 }
 
-.star-block {
-    width: 450px;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 25px;
+.res-block-one h1 {
+    font-size: 1.8em;
 }
+
+.res-block-one p {
+    color: grey;
+}
+
+.res-name, .res-rating, .res-type, .res-phone, .res-addr {
+    width: 100%;
+}
+
+.res-rating {
+    text-align: right;
+}
+
+
+
+/* -- Restaurant result -- block two */
+
+.res-contact-wrapper {
+    padding-bottom: 20px;
+}
+
+.res-block-two h1 {
+    font-size: 1.5em;
+}
+
+.res-block-two a {
+    margin-bottom: 1rem;
+}
+
+
+
