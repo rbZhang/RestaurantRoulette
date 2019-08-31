@@ -6,11 +6,11 @@
 }
 
 
-<nav class="result-nav navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+<nav class="result-nav navbar navbar-expand-sm navbar-dark bg-danger fixed-top">
     <div class="container">
         <div class="brand-logo">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-                <img src="~/images/rr-logo.svg" alt="Restaurant Roulette" style="width:35px" />
+                <img src="~/images/rr-logo.svg" alt="Restaurant Roulette" />
                 Restaurant Roulette
             </a>
         </div>
@@ -22,7 +22,7 @@
         <div class="res-img-wrapper">
             <div class="row">
                 <div class="res-img">
-                    <img src="@Url.Content(Model.Restaurant.Thumbnail)" />
+                    <img src="@Url.Content(Model.Restaurant.Thumbnail)" alt="No Image Found"/>
                 </div>
             </div>
         </div>
@@ -68,19 +68,16 @@
                 <div class="row">
                     <div class="res-addr col-12">
                         <h1>Address</h1>
-                        <a href="https://maps.google.com/maps?saddr=My+Location&daddr=@Model.Restaurant.Locations.Address"><p>@Model.Restaurant.Locations.Address</p></a>
+                        <a href="https://maps.google.com/?q=@Model.Restaurant.Locations.Address"><p>@Model.Restaurant.Locations.Address</p></a>
                     </div>
                 </div>
             </div>
             <div class="block-two-right col-lg-6 col-12">
-                <div class="maps-block" style="width:100%;height:300px;border:1px solid #000;">
-                    <p>Google maps goes here</p>
+                <div class="maps-block">
+                    <iframe id="gmap-canvas" src="https://maps.google.com/maps?q=@Model.Restaurant.Locations.Address&t=&z=13&ie=UTF8&iwloc=&output=embed" >
+                    </iframe>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
-
-

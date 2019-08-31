@@ -27,12 +27,12 @@ namespace RestaurantRoulette.Controllers
             else
             {
                 var client = new WebClient();
-                var googleApiKey = "google key";
+                var googleApiKey = "Google Api";
                 var address = model.Address;
                 var addressJson = client.DownloadString("https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + googleApiKey);
                 var addressResult = JsonConvert.DeserializeObject<LocationModel>(addressJson);
 
-                var zomatoApiKey = "zomato key";
+                var zomatoApiKey = "Zomato Api";
                 var mealType = model.MealType;
                 var latitude = addressResult.Results[0].Geometry.Location.Lat;
                 var longitude = addressResult.Results[0].Geometry.Location.Lng;
@@ -40,7 +40,7 @@ namespace RestaurantRoulette.Controllers
                 var json = client.DownloadString("https://developers.zomato.com/api/v2.1/search?q=" + mealType + "&lat=" + latitude + "&lon=" + longitude + "&apikey=" + zomatoApiKey + "&sort=real_distance");
                 var results = JsonConvert.DeserializeObject<RestaurantWrapper>(json);
 
-                if (results.NumberResults < 100000)
+                if (results.NumberResults < 100000 && results.NumberResults != 0)
                 {
                     var lastProperty = results.Restaurants.Count;
                     var randomNumber = new Random().Next(0, lastProperty);

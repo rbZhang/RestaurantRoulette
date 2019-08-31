@@ -25,6 +25,7 @@ namespace RestaurantRoulette.Models
 
         public string Cuisines { get; set; }
 
+        [JsonProperty("timings")]
         public string Timings { get; set; }
 
         [JsonProperty("average_cost_for_two")]

@@ -9,7 +9,7 @@
     <div class="container">
         <div class="brand-logo">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-                <img src="~/images/rr-logo.svg" alt="Restaurant Roulette" style="width:35px" />
+                <img src="~/images/rr-logo.svg" alt="Restaurant Roulette" />
                 Restaurant Roulette
             </a>
         </div>
@@ -25,9 +25,15 @@
                     <h2>Let us decide for you</h2>
                     <form method="get" action="/Home/Search">
                         <input type="hidden" name="MealType" id="mealType" value="" />
-                        <input type="text" name="Address" id="addr-input" placeholder="Enter your address" required />
-                        <img src="/images/location.png" alt="img" onclick="getLocation(null)" />
-                        <button type="submit" id="search-btn">Search</button>
+                        <div class="row">
+                            <div class="input-box offset-1 col-10 offset-lg-1 col-lg-7">
+                                <input type="text" name="Address" id="addr-input" placeholder="Enter your address" required />
+                                <img id="location-icon" src="/images/location.png" alt="img" onclick="getLocation(null)" />
+                            </div>
+                            <div class="submit-btn offset-1 col-10 offset-lg-0 col-lg-3">
+                                <button type="submit" id="search-btn">Search</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -70,11 +76,10 @@
     </div>
 </div>
 
-<script src="/js/site.js"></script>
 <script>
     function activatePlaceSearch() {
         var input = document.getElementById("addr-input");
         var autocomplete = new google.maps.places.Autocomplete(input);
     }
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=Key&libraries=places&callback=activatePlaceSearch"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=key&libraries=places&callback=activatePlaceSearch"></script>

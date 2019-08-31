@@ -37,21 +37,3 @@ function checkMealType() {
         document.getElementById("search-btn").click();
     }
 }
-
-function getRating(rating) {
-    var rating = Math.round(rating * 2) / 2
-
-    for (i = 0; i < 5; i++) {
-        if (i < rating) {
-            var span = document.createElement("span");
-            span.setAttribute('class', 'fa fa-star checked');
-            span.setAttribute('style', 'font-size:50px')
-            document.getElementById("star-rating").appendChild(span);
-        } else {
-            var span = document.createElement("span");
-            span.setAttribute('class', 'fa fa-star');
-            span.setAttribute('style', 'font-size:50px')
-            document.getElementById("star-rating").appendChild(span);
-        }
-    };
-}
